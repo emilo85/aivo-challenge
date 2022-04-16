@@ -18,4 +18,11 @@ export class LoginService {
     )
   }
 
+  isAuthenticated(): boolean {
+    const token = JSON.parse(localStorage.getItem('currentUser'));
+    if(token != null)
+    return true
+    return false
+  }
+
 }
