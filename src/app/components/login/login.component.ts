@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if(currentUser != null){
       this.user = currentUser.user.split('@')
-    }
-    else this.user = ''
-    
+    }   
   }
 
   login() {
