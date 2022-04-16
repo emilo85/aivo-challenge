@@ -10,6 +10,7 @@ import { VideosService } from 'src/app/services/videos.service';
 export class ListVideosComponent implements OnInit {
  
   listVideos: Video[] = [];
+  ordering: string
    
   constructor(public videosService: VideosService) { }
 
@@ -24,6 +25,18 @@ export class ListVideosComponent implements OnInit {
       error => {
         console.log(error)
       })
+  }
+
+  orderVideos() {
+    if (this.ordering == '1') {
+      let SortedByTitle: Video[] = this.listVideos.sort((a, b) => (a.title < b.title ? -1 : 1));
+      this.listVideos = SortedByTitle
+    }
+
+    if (this.ordering == '2') {
+      let SortedByYear: Video[] = this.listVideos.sort((a, b) => (a.releaseYear < b.releaseYear ? -1 : 1));
+      this.listVideos = SortedByYear
+    }
   }
 
 }

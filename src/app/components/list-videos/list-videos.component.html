@@ -1,14 +1,19 @@
 <div class="container">
-    <div fxLayout="row wrap" 
-          fxLayoutAlign="space-between" 
-          fxLayoutAlign.md="space-around"  
-          fxLayoutAlign.sm="center center" 
-          fxLayoutAlign.xs="center center"
-          fxLayoutGap.md="20px"
-          fxLayoutGap.sm="20px" 
-          > 
-        <div *ngFor="let video of listVideos">  
-          <app-video [video]="video"></app-video>
+
+    <div fxLayout.lg="row wrap">
+
+        <select [(ngModel)]="ordering" name="ordering" class="form-select mt-2" (change)="orderVideos()">
+            <option [ngValue]="undefined" selected disabled>Sort by:</option>
+            <option value="1">Name</option>
+            <option value="2">Year</option>
+        </select>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutAlign.md="space-around"
+        fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutGap.md="20px" fxLayoutGap.sm="20px">
+        <div *ngFor="let video of listVideos">
+            <app-video [video]="video"></app-video>
         </div>
-      </div>
+    </div>
 </div>
