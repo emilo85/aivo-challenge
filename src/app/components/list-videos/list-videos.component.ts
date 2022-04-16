@@ -8,10 +8,13 @@ import { VideosService } from 'src/app/services/videos.service';
   styleUrls: ['./list-videos.component.css']
 })
 export class ListVideosComponent implements OnInit {
- 
+
   listVideos: Video[] = [];
   ordering: string
-   
+  filteredString: string = ''
+  filter: string
+
+
   constructor(public videosService: VideosService) { }
 
   ngOnInit(): void {
@@ -37,6 +40,14 @@ export class ListVideosComponent implements OnInit {
       let SortedByYear: Video[] = this.listVideos.sort((a, b) => (a.releaseYear < b.releaseYear ? -1 : 1));
       this.listVideos = SortedByYear
     }
+  }
+
+  filterByType() {
+    this.filteredString = this.filter
+  }
+
+  currentYearLong(): number {
+    return new Date().getFullYear();
   }
 
 }

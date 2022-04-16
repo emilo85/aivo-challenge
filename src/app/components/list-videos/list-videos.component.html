@@ -1,18 +1,23 @@
 <div class="container">
 
     <div fxLayout.lg="row wrap">
-
         <select [(ngModel)]="ordering" name="ordering" class="form-select mt-2" (change)="orderVideos()">
             <option [ngValue]="undefined" selected disabled>Sort by:</option>
             <option value="1">Name</option>
             <option value="2">Year</option>
         </select>
 
+        <select [(ngModel)]="filter" name="filter" class="form-select mt-2" (change)="filterByType()">
+            <option [ngValue]="undefined" selected disabled>Filter by:</option>
+            <option value="movie">Film</option>
+            <option value="series">TV show</option>
+        </select>
     </div>
 
     <div fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutAlign.md="space-around"
-        fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutGap.md="20px" fxLayoutGap.sm="20px">
-        <div *ngFor="let video of listVideos">
+         fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutGap.md="20px"
+         fxLayoutGap.sm="20px">
+        <div *ngFor="let video of listVideos | filter:filteredString">
             <app-video [video]="video"></app-video>
         </div>
     </div>
