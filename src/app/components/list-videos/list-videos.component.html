@@ -1,12 +1,13 @@
 <div class="container">
-
-    <div class="loader" *ngIf="loading" fxLayout="row" fxLayoutAlign="start center">
-        <button class="btn btn-primary" type="button" disabled>
-            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-            Loading...
-        </button>
-    </div>
-
+    <app-login></app-login>
+            <div class="loader" *ngIf="loading">
+                <button class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            </div>
+            
+        
     <div fxLayout.lg="row wrap">
         <select [(ngModel)]="ordering" name="ordering" class="form-select mt-2" (change)="orderVideos()">
             <option [ngValue]="undefined" selected disabled>Sort by:</option>

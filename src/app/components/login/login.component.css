@@ -2,3 +2,15 @@
     font-size: 1.4rem;
     font-family: 'Roboto', sans-serif;
 }
+
+a {
+    cursor: pointer;
+    color:white;
+    font-weight: bold;
+    text-decoration: none;   
+}
+
+a:hover{
+    /* color: #7ea698; */
+    color:#829f95
+}

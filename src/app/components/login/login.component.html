@@ -1,4 +1,7 @@
-<div class="container mt-5">
+<div *ngIf="user[0] != null" class="d-flex justify-content-end mt-2">
+    <a class="link-dark" (click)="logout()">{{user[0]}} | Log Out</a>
+  </div>
+<div *ngIf="user[0] == null" class="container mt-5">
     <div class="row">
         <div class="col-lg-4 offset-lg-4">
             <div class="card">
