@@ -15,6 +15,7 @@ export class ListVideosComponent implements OnInit {
   filteredYear: string = ''
   filter: string
   filterY: string
+  loading: boolean = true;
 
 
   constructor(public videosService: VideosService) { }
@@ -25,7 +26,10 @@ export class ListVideosComponent implements OnInit {
 
   getVideos() {
     this.videosService.getVideos().subscribe(data => {
-      this.listVideos = data;
+      setTimeout(() => {
+        this.listVideos = data;
+        this.loading = false
+      }, 2000);
     },
       error => {
         console.log(error)
@@ -49,7 +53,7 @@ export class ListVideosComponent implements OnInit {
     this.filteredString = this.filter
   }
 
-  filterByYear(){
+  filterByYear() {
     this.filteredString = this.filterY
   }
 

@@ -1,5 +1,12 @@
 <div class="container">
 
+    <div class="loader" *ngIf="loading" fxLayout="row" fxLayoutAlign="start center">
+        <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
+    </div>
+
     <div fxLayout.lg="row wrap">
         <select [(ngModel)]="ordering" name="ordering" class="form-select mt-2" (change)="orderVideos()">
             <option [ngValue]="undefined" selected disabled>Sort by:</option>
@@ -16,13 +23,12 @@
         <select [(ngModel)]="filterY" name="filterY" class="form-select mt-2" (change)="filterByYear()">
             <option [ngValue]="undefined" selected disabled>Select year:</option>
             <option *ngFor="let item of [].constructor(100); let i = index" [ngValue]="currentYearLong() - i">
-              {{currentYearLong() - i}}</option>
+                {{currentYearLong() - i}}</option>
         </select>
     </div>
 
     <div fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutAlign.md="space-around"
-         fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutGap.md="20px"
-         fxLayoutGap.sm="20px">
+        fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxLayoutGap.md="20px" fxLayoutGap.sm="20px">
         <div *ngFor="let video of listVideos | filter:filteredString">
             <app-video [video]="video"></app-video>
         </div>
