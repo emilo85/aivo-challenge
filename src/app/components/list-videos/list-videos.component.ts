@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Video } from 'src/app/models/video';
+import { VideosService } from 'src/app/services/videos.service';
 
 @Component({
   selector: 'app-list-videos',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-videos.component.css']
 })
 export class ListVideosComponent implements OnInit {
-
-  constructor() { }
+ 
+  listVideos: Video[] = [];
+   
+  constructor(public videosService: VideosService) { }
 
   ngOnInit(): void {
+    this.getVideos()
+  }
+
+  getVideos() {
+    this.videosService.getVideos().subscribe(data => {
+      this.listVideos = data;
+    },
+      error => {
+        console.log(error)
+      })
   }
 
 }

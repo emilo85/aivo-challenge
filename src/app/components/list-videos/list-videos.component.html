@@ -1,1 +1,7 @@
-<p>list-videos works!</p>
+<div class="container">
+        <div *ngFor="let video of listVideos">
+            <img src="{{video.images['Poster Art'].url}}"> 
+            <h5 class="card-title">{{video.title}} - {{video.releaseYear}}</h5>
+            <p  class="card-text">{{video.description}}</p>
+        </div>
+</div>
