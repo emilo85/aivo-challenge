@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.email, this.password).subscribe(data => {
       
       if (data.access_token != '') {
+        console.log('datos:',data)
         localStorage.setItem('currentUser', JSON.stringify({ token: data.access_token, user: this.email }));        
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         let user = currentUser.user.split('@') 
