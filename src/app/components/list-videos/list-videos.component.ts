@@ -12,7 +12,9 @@ export class ListVideosComponent implements OnInit {
   listVideos: Video[] = [];
   ordering: string
   filteredString: string = ''
+  filteredYear: string = ''
   filter: string
+  filterY: string
 
 
   constructor(public videosService: VideosService) { }
@@ -31,6 +33,7 @@ export class ListVideosComponent implements OnInit {
   }
 
   orderVideos() {
+    this.filteredString = '';
     if (this.ordering == '1') {
       let SortedByTitle: Video[] = this.listVideos.sort((a, b) => (a.title < b.title ? -1 : 1));
       this.listVideos = SortedByTitle
@@ -44,6 +47,10 @@ export class ListVideosComponent implements OnInit {
 
   filterByType() {
     this.filteredString = this.filter
+  }
+
+  filterByYear(){
+    this.filteredString = this.filterY
   }
 
   currentYearLong(): number {
