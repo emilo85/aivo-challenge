@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -21,11 +23,17 @@ export class LoginComponent implements OnInit {
       
       if (data.access_token != '') {
         localStorage.setItem('currentUser', JSON.stringify({ token: data.access_token, user: this.email }));        
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        let user = currentUser.user.split('@') 
+        
+        this.toastr.success('Welcome ' + user[0] + ' you are logged in!', 'Login success');
+        this.router.navigate(['/home']) 
       }
       
     },
       error => {
         console.log(error)
+        this.toastr.error('Username or password is incorrect', 'Login error');
       })
   }
 
