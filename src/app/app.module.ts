@@ -9,6 +9,7 @@ import { VideoComponent } from './components/video/video.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
     FlexLayoutModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
