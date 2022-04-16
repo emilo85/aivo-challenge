@@ -1,5 +1,12 @@
 <div class="container">
-    <div > 
+    <div fxLayout="row wrap" 
+          fxLayoutAlign="space-between" 
+          fxLayoutAlign.md="space-around"  
+          fxLayoutAlign.sm="center center" 
+          fxLayoutAlign.xs="center center"
+          fxLayoutGap.md="20px"
+          fxLayoutGap.sm="20px" 
+          > 
         <div *ngFor="let video of listVideos">  
           <app-video [video]="video"></app-video>
         </div>
