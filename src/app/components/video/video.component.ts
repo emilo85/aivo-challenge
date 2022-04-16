@@ -9,6 +9,7 @@ import { Video } from 'src/app/models/video';
 export class VideoComponent implements OnInit {
 
   @Input() video: Video;
+  showDescription:boolean = false
 
   constructor() { }
 

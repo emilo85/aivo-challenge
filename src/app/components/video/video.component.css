@@ -1,0 +1,13 @@
+p{
+    font-size: 14px;
+    position:absolute;
+    z-index: 1;
+} 
+
+.testing_class{
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    background:black;
+    color:white;
+    height: 450px;
+    border:0 
+} 

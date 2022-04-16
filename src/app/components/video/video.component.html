@@ -1,6 +1,9 @@
-<div class="card mt-5" style="width: 18rem;">
+<div [ngClass]="{'testing_class': showDescription == true }" class="card mt-5" style="width: 18rem;" 
+(mouseover)="showDescription = true" 
+(mouseleave)="showDescription = false">
     <img src="{{video.images['Poster Art'].url}}" class="card-img-top" alt="..."  height="250px"> 
     <div class="card-body">
         <h5 class="card-title">{{video.title}} - {{video.releaseYear}}</h5>
+        <p *ngIf="showDescription" class="card-text">{{video.description}}</p>
     </div>
 </div>
