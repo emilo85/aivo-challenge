@@ -12,11 +12,12 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  user: string = ''
+  user: string
 
   constructor(public loginService: LoginService,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.user = ''
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if(currentUser != null){
       this.user = currentUser.user.split('@')
