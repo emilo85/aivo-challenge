@@ -6,7 +6,7 @@
 
 **** Angular app ****
 
-1-Start progect: n s -o
+1-Start project: n serve --o
 
 2-Use credentials: 
 
