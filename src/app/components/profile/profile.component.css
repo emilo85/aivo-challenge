@@ -1,0 +1,12 @@
+.img-fluid {
+    max-width: 22%;
+    height: auto;
+}
+
+p {
+    margin-top: 8px;
+    margin-bottom: 1rem;
+    margin-right: 7px;
+    color: white;
+    font-weight: bold;
+}

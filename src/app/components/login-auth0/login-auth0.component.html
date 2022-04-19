@@ -1,0 +1,4 @@
+<div class="container login" fxLayout="row" fxLayoutAlign="center center">
+    <button (click)="loginWithRedirect()" class="btn-login" *ngIf="(auth.isAuthenticated$ | async) == false"><span>Log
+            In with </span><img src="/assets/images/auth0-ar21.svg" alt="image"></button>
+</div>
