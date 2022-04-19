@@ -12,13 +12,6 @@ export class VideosService {
   constructor(private http: HttpClient) { }
 
   getVideos(): Observable<any> {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    let auth_token = currentUser.token
-    
-    var reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + auth_token
-    })
-    return this.http.get<Video[]>(environment.URL_API, { headers: reqHeader })
+    return this.http.get<Video[]>(environment.URL_API)
   }
 }
